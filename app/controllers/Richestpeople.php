@@ -1,5 +1,5 @@
 <?php
-class Countries extends Controller
+class Richestpeople extends Controller
 {
 
   public function __construct()
@@ -13,13 +13,13 @@ class Countries extends Controller
      * Haal via de method getFruits() uit de model Fruit de records op
      * uit de database
      */
-    $countries = $this->RichModel->getCountries();
+    $Richest = $this->RichModel->getRich();
 
     /**
      * Maak de inhoud voor de tbody in de view
      */
     $rows = '';
-    foreach ($countries as $value) {
+    foreach ($Richest as $value) {
       $rows .= "<tr>
                   <td>$value->id</td>
                   <td>" . htmlentities($value->name, ENT_QUOTES, 'ISO-8859-1') . "</td>
