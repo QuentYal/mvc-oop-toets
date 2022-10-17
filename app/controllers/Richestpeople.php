@@ -4,7 +4,7 @@ class Countries extends Controller
 
   public function __construct()
   {
-    $this->countryModel = $this->model('Country');
+    $this->RichModel = $this->model('Rich');
   }
 
   public function index()
@@ -13,7 +13,7 @@ class Countries extends Controller
      * Haal via de method getFruits() uit de model Fruit de records op
      * uit de database
      */
-    $countries = $this->countryModel->getCountries();
+    $countries = $this->RichModel->getCountries();
 
     /**
      * Maak de inhoud voor de tbody in de view
@@ -35,17 +35,17 @@ class Countries extends Controller
       'title' => '<h1>richpeople</h1>',
       'rich' => $rows
     ];
-    $this->view('countries/index', $data);
+    $this->view('rich/index', $data);
   }
 
   public function delete($id)
   {
-    $this->countryModel->deleteCountry($id);
+    $this->RichModel->deleteRich($id);
 
     $data = [
       'deleteStatus' => "Het record met id = $id is verwijdert."
     ];
-    $this->view("countries/delete", $data);
-    header("Refresh:2; url=" . URLROOT . "/countries/index");
+    $this->view("rich/delete", $data);
+    header("Refresh:2; url=" . URLROOT . "/rich/index");
   }
 }
