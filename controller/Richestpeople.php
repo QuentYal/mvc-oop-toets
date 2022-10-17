@@ -1,5 +1,5 @@
 <?php
-class Richpeople extends Controller
+class Richestpeople extends Controller
 {
 
     public function __construct()
