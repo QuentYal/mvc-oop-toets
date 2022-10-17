@@ -1,3 +1,4 @@
+<?php require  'require.php' ?>
 <?php echo $data["title"]; ?>
 <a href="<?= URLROOT; ?>/countries/create">Nieuw record</a>
 <table>
