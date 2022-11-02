@@ -21,12 +21,12 @@ class Richestpeople extends Controller
     $rows = '';
     foreach ($Richest as $value) {
       $rows .= "<tr>
-                  <td>$value->id</td>
-                  <td>" . htmlentities($value->name, ENT_QUOTES, 'ISO-8859-1') . "</td>
-                  <td>" . number_format($value->population, 0, ',', '.') . "</td>
-                  <td>" . number_format($value->population, 0, ',', '.') . "</td>
-                  <td>" . htmlentities($value->capitalCity, ENT_QUOTES, 'ISO-8859-1') . "</td>
-                  <td><a href='" . URLROOT . "/rich/delete/$value->id'>delete</a></td>
+                  <td>$value->Id</td>
+                  <td>" . htmlentities($value->Name, ENT_QUOTES, 'ISO-8859-1') . "</td>
+                  <td>" . number_format($value->NetWorth, 0, ',', '.') . "</td>
+                  <td>" . number_format($value->Age, 0, ',', '.') . "</td>
+                  <td>" . htmlentities($value->MyCompany, ENT_QUOTES, 'ISO-8859-1') . "</td>
+                  <td><a href='" . URLROOT . "/Richestpeople/delete/$value->Id'>delete</a></td>
                 </tr>";
     }
 
@@ -35,17 +35,17 @@ class Richestpeople extends Controller
       'title' => '<h1>richpeople</h1>',
       'rich' => $rows
     ];
-    $this->view('rich/index', $data);
+    $this->view('Rich/index', $data);
   }
 
   public function delete($id)
   {
-    $this->RichModel->deleteRich($id);
+    $this->RichModel->delete($id);
 
     $data = [
       'deleteStatus' => "Het record met id = $id is verwijdert."
     ];
-    $this->view("rich/delete", $data);
-    header("Refresh:2; url=" . URLROOT . "/rich/index");
+    $this->view("Richestpeople/delete", $data);
+    header("Refresh:2; url=" . URLROOT . "Richestpeople/index");
   }
 }

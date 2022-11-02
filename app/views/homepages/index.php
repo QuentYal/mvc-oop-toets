@@ -1,4 +1,4 @@
 <p>
 <h3><?= $data["title"]; ?></h3>
 </p>
-<a href="<?= URLROOT; ?>controllers/Richestpeople">Landenoverzicht</a>
+<a href="<?= URLROOT; ?>Richestpeople/index">Landenoverzicht</a>

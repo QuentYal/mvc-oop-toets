@@ -24,7 +24,7 @@ class Rich
     return $this->db->single();
   }
 
-  public function deleteCountry($id)
+  public function delete($id)
   {
     $this->db->query("DELETE FROM richestpeople WHERE id = :id");
     $this->db->bind("id", $id, PDO::PARAM_INT);
