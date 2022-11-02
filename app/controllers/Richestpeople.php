@@ -4,7 +4,7 @@ class Richestpeople extends Controller
 
   public function __construct()
   {
-    $this->RichModel = $this->model('Rich');
+    $this->richModel = $this->model('Rich');
   }
 
   public function index()
@@ -13,13 +13,13 @@ class Richestpeople extends Controller
      * Haal via de method getFruits() uit de model Fruit de records op
      * uit de database
      */
-    $Richest = $this->RichModel->getRich();
+    $richest = $this->richModel->getRich();
 
     /**
      * Maak de inhoud voor de tbody in de view
      */
     $rows = '';
-    foreach ($Richest as $value) {
+    foreach ($richest as $value) {
       $rows .= "<tr>
                   <td>$value->Id</td>
                   <td>" . htmlentities($value->Name, ENT_QUOTES, 'ISO-8859-1') . "</td>
@@ -33,19 +33,19 @@ class Richestpeople extends Controller
 
     $data = [
       'title' => '<h1>richpeople</h1>',
-      'rich' => $rows
+      'richestpeople' => $rows
     ];
-    $this->view('Rich/index', $data);
+    $this->view('rich/index', $data);
   }
 
   public function delete($id)
   {
-    $this->RichModel->delete($id);
+    $this->richModel->deleteRich($id);
 
     $data = [
       'deleteStatus' => "Het record met id = $id is verwijdert."
     ];
-    $this->view("Richestpeople/delete", $data);
-    header("Refresh:2; url=" . URLROOT . "Richestpeople/index");
+    $this->view("rich/delete", $data);
+    header("Refresh:2; url=" . URLROOT . "/rich/index");
   }
 }
